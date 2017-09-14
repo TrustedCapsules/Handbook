@@ -31,6 +31,8 @@ repo init -u https://github.com/TrustedCapsules/manifest.git -m hikey_debian_sta
 repo sync
 ```
 
+TODO: document the changes necessary for capsule server (i.e. hardcoded IPs).
+
 ## Build toolchains
 After getting the source code, you must get the `toolchains`. These are specific for different targets.
 
@@ -82,7 +84,9 @@ modprobe optee # Should not be necessary, but is...
 tee-supplicant &
 ```
 
-Test the OP-TEE side:
+### OP-TEE regression tests
+To run OP-TEE created regression tests, run this command after initializing the environment.
+
 ```bash
 xtest
 ```
@@ -96,20 +100,23 @@ Your output should look (something) like this:
 TEE test application done!
 ```
 
-Reboot the board after this test, currently you cannot run both `xtest` and the TrustedCapsule tests in the same run.
 
-There are two tests for the Trusted Capsules code: the trusted application test and the networking test.
+### Testing Trusted Capsules
+There are four tests you must run to ensure the trusted capsules system is working correctly:
 
-Trusted Application test:
+- capsule_test: tests the trusted application calls
+- capsule_test_network: tests the network primitives for communicating with the secure server
+- capsule_test_policy: tests the different policy functions
+- application testing: this is a workflow to test the different applications to ensure they are working
+
+#### Trusted Application test
 ```bash
 capsule_test REGISTER_KEYS # If this fails because of an ACCESS_CONFLICT error, just retry
 capsule_test FULL
 ```
 
-Networking test (run after the trusted application):
-
-On your host machine (where you build the code), go to `optee_app/capsule_server`. You will need to run `capsule_server`
-with specific commands based on what capsule\_test\_network you are running.
+#### Networking test
+This should be run after you have run `capsule_test REGISTER_KEYS`. On your host machine (where you build the code), go to `optee_app/capsule_server`. You will need to run `capsule_server` with specific commands based on what capsule\_test\_network you are running.
 
 To test the general communication:
 ```bash
@@ -126,10 +133,13 @@ capsule_server ECHO_ENC_SER
 capsule_test_network ECHO_ENCRYPT_SERIALIZE
 ```
 
-To test the policies (after running the trusted application test):
+#### Policy test
+To test the policy functions, you will still need to use the capsule_server.
 ```bash
 # On host machine
 capsule_server CAPSULE
 # On hikey board
 capsule_test_policy
 ```
+#### Application tests
+TODO describe how to test applications.
