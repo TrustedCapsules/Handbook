@@ -121,14 +121,14 @@ This should be run after you have run `capsule_test REGISTER_KEYS`. On your host
 To test the general communication:
 ```bash
 # On host machine
-capsule_server ECHO_SIMPLE
+capsule_server 3490 ECHO_SIMPLE
 # On hikey board
 capsule_test_network ECHO
 ```
 To test the encrypted communication:
 ```bash
 # On host machine
-capsule_server ECHO_ENC_SER
+capsule_server 3490 ECHO_ENC_SER
 # On hikey board
 capsule_test_network ECHO_ENCRYPT_SERIALIZE
 ```
@@ -137,7 +137,7 @@ capsule_test_network ECHO_ENCRYPT_SERIALIZE
 To test the policy functions, you will still need to use the capsule_server.
 ```bash
 # On host machine
-capsule_server CAPSULE
+capsule_server 3490 CAPSULE
 # On hikey board
 capsule_test_policy
 ```
