@@ -21,6 +21,14 @@ sudo apt-get install android-tools-adb android-tools-fastboot autoconf \
     xdg-utils xterm xz-utils zlib1g-dev ccache
 ```
 
+### Minicom setup
+
+Change your minicom settings such that your ~/minirc.dfl looks like this:
+```
+pu port		/dev/ttyUSB0
+pu rtscts	No
+```
+
 ## Get the code
 We have created a customized hikey manifest based on the OP-TEE manifest.
 
