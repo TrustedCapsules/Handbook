@@ -41,6 +41,18 @@ cd build
 make toolchains
 ```
 
+## Build dependencies
+```bash
+cd $HOME/trustedcapsules/code/optee_app/capsule_gen/src/libtomcrypt
+./updatemakes.sh
+sudo make install
+cd $HOME/trustedcapsules/code/optee_app/capsule_gen/src/tomsfastmath
+sudo make install
+cd $HOME/trustedcapsules/code/optee_app/capsule_gen/src/
+./make_all_capsules
+```
+TODO: make this part of the regular build?
+
 ## Build source code
 After building the toolchains, you need to build the source code. This will take a long time.
 
