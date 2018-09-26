@@ -18,7 +18,7 @@ sudo apt-get install android-tools-adb android-tools-fastboot autoconf \
     libftdi-dev libglib2.0-dev libhidapi-dev libncurses5-dev \
     libpixman-1-dev libssl-dev libstdc++6:i386 libtool libz1:i386 make \
     mtools netcat python-crypto python-serial python-wand unzip uuid-dev \
-    xdg-utils xterm xz-utils zlib1g-dev ccache
+    xdg-utils xterm xz-utils zlib1g-dev ccache repo gcc-aarch64-linux-gnu
 ```
 
 ### Minicom setup
@@ -48,6 +48,18 @@ After getting the source code, you must get the `toolchains`. These are specific
 cd build
 make toolchains
 ```
+
+## Build dependencies
+```bash
+cd $HOME/trustedcapsules/code/optee_app/capsule_gen/src/libtomcrypt
+./updatemakes.sh
+sudo make install
+cd $HOME/trustedcapsules/code/optee_app/capsule_gen/src/tomsfastmath
+sudo make install
+cd $HOME/trustedcapsules/code/optee_app/capsule_gen/src/
+./make_all_capsules
+```
+TODO: make this part of the regular build?
 
 ## Build source code
 After building the toolchains, you need to build the source code. This will take a long time.
