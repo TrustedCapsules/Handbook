@@ -45,6 +45,7 @@ TODO: document the changes necessary for capsule server (i.e. hardcoded IPs).
 After getting the source code, you must get the `toolchains`. These are specific for different targets.
 
 ```bash
+export PATH=$PATH:~/trustedcapsules/code/toolchains/aarch32/bin:~/trustedcapsules/code/toolchains/aarch64/bin:~/trustedcapsules/code/arm-trusted-firmware/tools/fip_create
 cd build
 make toolchains
 
