@@ -17,13 +17,13 @@ sudo apt-get install android-tools-adb android-tools-fastboot autoconf \
     ftp-upload gdisk iasl libattr1-dev libc6:i386 libcap-dev libfdt-dev \
     libftdi-dev libglib2.0-dev libhidapi-dev libncurses5-dev \
     libpixman-1-dev libssl-dev libstdc++6:i386 libtool libz1:i386 make \
-    mtools netcat python-crypto python-serial python-wand unzip uuid-dev \
+    meson/xenial-backports mtools netcat python-crypto python-serial python-wand repo unzip uuid-dev \
     xdg-utils xterm xz-utils zlib1g-dev ccache
 ```
 
 ### Minicom setup
 
-Change your minicom settings such that your ~/minirc.dfl looks like this:
+Change your minicom settings such that your ~/.minirc.dfl looks like this:
 ```
 pu port		/dev/ttyUSB0
 pu rtscts	No
@@ -47,6 +47,12 @@ After getting the source code, you must get the `toolchains`. These are specific
 ```bash
 cd build
 make toolchains
+
+cd  ~/trustedcapsules/code/optee_app/capsule_gen/tomcrypt/libtomcrypt
+sudo make install
+
+cd  ~/trustedcapsules/code/optee_app/capsule_gen/tomcrypt/tomsfastmath
+sudo make install
 ```
 
 ## Build source code
@@ -62,6 +68,8 @@ To flash the Hikey board, follow the instructions in the make file after running
 ```bash
 make recovery
 ```
+
+To access the serial console, use `sudo minicom`
 
 ## Setting up the device
 Now that the Hikey board has been flashed. You need to enable wifi and download some packages.
