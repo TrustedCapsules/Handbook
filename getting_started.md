@@ -45,9 +45,10 @@ TODO: document the changes necessary for capsule server (i.e. hardcoded IPs).
 After getting the source code, you must get the `toolchains`. These are specific for different targets.
 
 ```bash
-export PATH=$PATH:~/trustedcapsules/code/toolchains/aarch32/bin:~/trustedcapsules/code/toolchains/aarch64/bin:~/trustedcapsules/code/arm-trusted-firmware/tools/fip_create
 cd build
 make toolchains
+
+export PATH=$PATH:~/trustedcapsules/code/toolchains/aarch32/bin:~/trustedcapsules/code/toolchains/aarch64/bin:~/trustedcapsules/code/arm-trusted-firmware/tools/fip_create
 
 cd  ~/trustedcapsules/code/optee_app/capsule_gen/tomcrypt/libtomcrypt
 sudo make install
@@ -88,7 +89,7 @@ Then, you need to modify the .bashrc file to connect to wifi by adding `./setup_
 Finally, run these commands to copy over the files from your computer and install them:
 ```bash
 ./get_debs.sh -diow # Downloads and installs the optee deb and wifi deb, this involves a reboot
-./get_debs.sh -dil  # Downloads and installs the new linux version
+./get_debs.sh -dil  # Downloads and installs the new linux version - NOT NEEDED ANYMORE. SKIP!
 ```
 
 ## Testing installation
