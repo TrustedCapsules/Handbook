@@ -50,10 +50,10 @@ make toolchains
 
 export PATH=$PATH:~/trustedcapsules/code/toolchains/aarch32/bin:~/trustedcapsules/code/toolchains/aarch64/bin:~/trustedcapsules/code/arm-trusted-firmware/tools/fip_create
 
-cd  ~/trustedcapsules/code/optee_app/capsule_gen/tomcrypt/libtomcrypt
+cd  ~/trustedcapsules/code/optee_app/capsule_gen/src/libtomcrypt
 sudo make install
 
-cd  ~/trustedcapsules/code/optee_app/capsule_gen/tomcrypt/tomsfastmath
+cd  ~/trustedcapsules/code/optee_app/capsule_gen/src/tomsfastmath
 sudo make install
 ```
 
