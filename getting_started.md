@@ -55,6 +55,9 @@ sudo make install
 
 cd  ~/trustedcapsules/code/optee_app/capsule_gen/src/tomsfastmath
 sudo make install
+
+#prevent debian pem issue:
+sed -i '/CONFIG_SYSTEM_TRUSTED_KEYS/s/^/#/g' ~/trustedcapsules/code/linux/.config
 ```
 
 ## Build source code
