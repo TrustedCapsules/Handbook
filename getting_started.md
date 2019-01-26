@@ -61,6 +61,7 @@ sudo make install
 After building the toolchains, you need to build the source code. This will take a long time.
 
 ```bash
+cd ~/trustedcapsules/code/build
 make
 ```
 
