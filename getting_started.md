@@ -58,6 +58,9 @@ sudo make install
 
 #prevent debian pem issue:
 sed -i '/CONFIG_SYSTEM_TRUSTED_KEYS/s/^/#/g' ~/trustedcapsules/code/linux/.config
+
+#need debian system image
+scp puneet@yao:/big_disk/puneet/debian_system.img ~/trustedcapsules ~/trustedcapsules
 ```
 
 ## Build source code
