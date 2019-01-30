@@ -35,7 +35,7 @@ We have created a customized hikey manifest based on the OP-TEE manifest.
 ```bash
 mkdir -p $HOME/trustedcapsules/code
 cd $HOME/trustedcapsules/code
-repo init -u git@github.com:TrustedCapsules/manifest.git -m hikey_debian_stable.xml
+repo init -u https://github.com/TrustedCapsules/manifest.git -m hikey_debian_stable.xml
 repo sync
 ```
 
