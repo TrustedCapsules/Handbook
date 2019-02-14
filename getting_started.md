@@ -59,6 +59,9 @@ sudo make install
 #prevent debian pem issue:
 sed -i '/CONFIG_SYSTEM_TRUSTED_KEYS/s/^/#/g' ~/trustedcapsules/code/linux/.config
 
+#for capsule server twitter support (since upstream hasn't updated the DM endpoint)
+pip3 install git+https://github.com/TrustedCapsules/python-twitter --user
+
 #need debian system image
 scp puneet@yao:/big_disk/puneet/debian_system.img ~/trustedcapsules ~/trustedcapsules
 ```
