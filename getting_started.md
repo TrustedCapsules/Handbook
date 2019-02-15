@@ -23,7 +23,7 @@ sudo apt-get install android-tools-adb android-tools-fastboot autoconf \
 
 ### Minicom setup
 
-Change your minicom settings such that your ~/.minirc.dfl looks like this:
+Change your minicom settings such that your `~/.minirc.dfl` looks like this:
 ```
 pu port		/dev/ttyUSB0
 pu rtscts	No
