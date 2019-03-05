@@ -176,4 +176,6 @@ TODO describe how to test applications.
 ```bash
 scp USER@MACHINE.nss.cs.ubc.ca:~/trustedcapsules/code/out/optee_3.3.0-16-g333ef9a-0.deb .
 dpkg -i  --force-overwrite optee_3.3.0-16-g333ef9a-0.deb
+#not sure if needed
+scp -r USER@MACHINE.nss.cs.ubc.ca:~/trustedcapsules/code/out/optee_3.3.0-16-g333ef9a-0/etc/* /etc
 ```
