@@ -81,7 +81,7 @@ To flash the Hikey board, follow the instructions in the make file after running
 make recovery
 ```
 
-To access the serial console, use `sudo minicom`
+To access the serial console, use `sudo minicom` or `sudo picocom /dev/ttyUSB0 -b 115200`
 
 ## Setting up the device
 Now that the Hikey board has been flashed. You need to enable wifi and download some packages.
